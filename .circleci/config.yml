@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Building docker image
           command: |
-            echo $docker_password | docker login -u DOCKERHUB_USERNAME --password-stdin
+            echo $docker_password | docker login -u $DOCKERHUB_USERNAME --password-stdin
             GIT_COMMIT=$(git rev-parse --short HEAD)
             docker build -t abhishek00007/newnode:$GIT_COMMIT .
             docker push abhishek00007/newnode:$GIT_COMMIT
