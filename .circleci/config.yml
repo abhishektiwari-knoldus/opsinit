@@ -26,7 +26,7 @@ jobs:
             GIT_COMMIT=$(git rev-parse --short HEAD)
             az login --service-principal -u $client_id -p $client_secret --tenant $tenant_id
             az account set --subscription $subscription
-            az aks get-credentials --resource-group speakeasy --name speakeasy
+            az aks get-credentials --resource-group speakeasy --name demo-aks
             kubectl apply -f deployment.yml
             kubectl apply -f service.yml
             kubectl set image deployment/nodejs nodejs-aks-app=abhishek00007/newnode:$GIT_COMMIT
